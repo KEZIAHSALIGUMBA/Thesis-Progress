@@ -1,0 +1,19 @@
+---
+title: "About"
+image: dp.JPG
+about:
+  template: jolla
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/kzsaligumba
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/kzsaligumba/
+    - icon: github
+      text: Github
+      href: https://github.com/KEZIAHSALIGUMBA
+
+---
+
+Keziah M. saligumba is a 4th Year BS Statistics student from Mindanao State University.
