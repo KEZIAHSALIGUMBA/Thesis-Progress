@@ -1,6 +1,6 @@
 ---
 title: "About"
-image: dp.JPG
+image: profile.jpg
 about:
   template: jolla
   links:
@@ -16,4 +16,4 @@ about:
 
 ---
 
-Keziah M. saligumba is a 4th Year BS Statistics student from Mindanao State University.
+Keziah M. Saligumba is a 4th Year BS Statistics student from Mindanao State University.

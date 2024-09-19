@@ -9,7 +9,7 @@
 <meta name="author" content="Keziah M. Saligumba">
 <meta name="dcterms.date" content="2024-09-15">
 
-<title>Gaussian Mixture Model – Gaussian Mixed Model</title>
+<title>Mixture Models – Gaussian Mixed Model</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -178,7 +198,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Gaussian Mixture Model</h1>
+      <h1 class="title">Mixture Models</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">concepts</div>
               </div>
@@ -217,12 +237,13 @@ window.Quarto = {
 
 
 
-<p>Gaussian Mixtures (Titterington et al., 1985) are ubiquitous probabilistic models for density estimation in machine learning applications.</p>
-<p><img src="thumbnail.png" class="img-fluid"></p>
+<p>Mixture model combines multiple patterns or group to represent a more complex dataset.</p>
+<p><img src="mixture.png" class="img-fluid"></p>
 <p>Clustering is the process of organizing similar data points into groups, revealing patterns and insights that may not be immediately apparent. It divides data into distinct categories based on behavior, providing a clearer perspective of how the data is arranged. However, what happens when some data points overlap between clusters or do not clearly belong to just one category?</p>
-<section id="mixture-models" class="level1">
-<h1>Mixture Models</h1>
-<p>Mixture models are a broad class of statistical models used to discern unobserved (i.e, latent) classes or patterns of responses from data (see McLachlan &amp; Peel, 2000 for a comprehensive description). Mixture models are useful for describing heterogeneity in data where it is not distinctive in a single distribution. The idea of this model is that the data is generated from a mixture of <span class="math inline">\(K\)</span> different distributions, known as <strong>components</strong>.</p>
+<p><em>In this blog, we will be discussing about Mixture Models.</em></p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Mixture models are a broad class of statistical models used to discern unobserved (i.e, latent) classes or patterns of responses from data.These are also known as model-based clustering (<span class="citation" data-cites="peel2000finite">Peel and MacLahlan (<a href="#ref-peel2000finite" role="doc-biblioref">2000</a>)</span>). Mixture models are useful for describing heterogeneity in data where it is not distinctive in a single distribution. The idea of this model is that the data is generated from a mixture of <span class="math inline">\(K\)</span> different distributions, known as <strong>components</strong>.</p>
 <p>Each data point is associated with a latent (hidden) variable that indicates which component it came from. This variable is not observed directly but is inferred from the data, and each component also has a weight that represents the proportion of data points belonging to it. These weights must sum to 1. Unlike, <strong>K-Means</strong> where instead of assigning data points to a single component (known as <strong>hard clustering</strong>), mixture models provide probabilities for each data point being associated with each component. This is known as <strong>soft clustering</strong>.</p>
 </section>
 <section id="gaussian-mixture-model" class="level1">
@@ -288,12 +309,18 @@ window.Quarto = {
 <p>These two illustrative examples above give rise to the general notion of a mixture model which assumes each observation is generated from one of <span class="math inline">\(K\)</span> mixture components.</p>
 <p><strong>Acknowledgement:</strong> The “Examples” section above was taken from lecture notes written by Ramesh Sridharan.</p>
 <p><strong>References:</strong> Bernstein, M., Stephens, M. (Github Repositories)</p>
+<p>@</p>
+
 
 
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-peel2000finite" class="csl-entry" role="listitem">
+Peel, David, and G MacLahlan. 2000. <span>“Finite Mixture Models.”</span> <em>John &amp; Sons</em>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

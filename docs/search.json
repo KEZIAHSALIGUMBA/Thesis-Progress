@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Thesis-Progress",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 15, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nGaussian Mixture Model\n\n\n\n\n\n\nconcepts\n\n\n\n\n\n\n\n\n\nSep 15, 2024\n\n\nKeziah M. Saligumba\n\n\n\n\n\n\nNo matching items"
+    "text": "Gaussian Mixture Model\n\n\n\n\n\n\nconcepts\n\n\n\n\n\n\n\n\n\nSep 15, 2024\n\n\nKeziah M. Saligumba\n\n\n\n\n\n\n\n\n\n\n\n\nMixture Models\n\n\n\n\n\n\nconcepts\n\n\n\n\n\n\n\n\n\nSep 15, 2024\n\n\nKeziah M. Saligumba\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/post-with-code/index.html",
@@ -23,22 +23,92 @@
   {
     "objectID": "posts/welcome/index.html",
     "href": "posts/welcome/index.html",
-    "title": "Gaussian Mixture Model",
+    "title": "Mixture Models",
     "section": "",
-    "text": "Gaussian Mixtures (Titterington et al., 1985) are ubiquitous probabilistic models for density estimation in machine learning applications.\nClustering is the process of organizing similar data points into groups, revealing patterns and insights that may not be immediately apparent. It divides data into distinct categories based on behavior, providing a clearer perspective of how the data is arranged. However, what happens when some data points overlap between clusters or do not clearly belong to just one category?"
+    "text": "Mixture model combines multiple patterns or group to represent a more complex dataset.\nClustering is the process of organizing similar data points into groups, revealing patterns and insights that may not be immediately apparent. It divides data into distinct categories based on behavior, providing a clearer perspective of how the data is arranged. However, what happens when some data points overlap between clusters or do not clearly belong to just one category?\nIn this blog, we will be discussing about Mixture Models."
   },
   {
     "objectID": "posts/welcome/index.html#definition",
     "href": "posts/welcome/index.html#definition",
-    "title": "Gaussian Mixture Model",
+    "title": "Mixture Models",
     "section": "Definition",
     "text": "Definition\nIn a GMM, each component follows a Gaussian distribution, which makes it useful when data comes from multiple overlapping clusters.\n\n\n\nFig. 1: Gaussian Mixture Model\n\n\nIn a univariate normal distribution, the data is from a single dimension, such as height or weight. It is characterized by two key parameters:\n\\(\\bullet\\) Mean (\\(\\mu\\)): which is the average value, represents the central value where data points are likely to be found\n\\(\\bullet\\) Variance(\\(\\sigma^2\\)): where it determines the spread of the data points around the mean\nThe Gaussian Distribution has a density function of:\n\\[f(x) = f_x(x;\\mu, \\sigma) = \\frac{1}{\\sqrt{2\\pi} \\sigma} e^{-(x-\\mu)^2/2\\sigma^2}\\]\nIn the context of Gaussian Mixture Model, assume that we have a random variables of \\(X_1\\), …, \\(X_n\\), and that each \\(X_i\\) is sampled from one of the \\(K\\) mixture components. Associated with each random variable \\(X_i\\) is \\(Z_i \\in \\{1,\\ldots,K\\}\\) which \\(X_i\\) is from. Usually, we do not observe \\(Z_i\\) which are our latent variables.\nFrom the law of total probability,\n\\[P(A) = \\sum P(A \\cap B_k)\\] the marginal probability of \\(X_i\\) is:\n\\[P(X_i = x) = \\sum_{k=1}^K P(X_i=x|Z_i=k)\\underbrace{P(Z_i=k)}_{\\pi_k} = \\sum_{k=1}^K P(X_i=x|Z_i=k)\\pi_k\\]\nwhere \\(\\pi_k\\) are called mixture weights and represent the probability that \\(X_i\\) belongs to the \\(k\\)-th mixture components. As said above, mixture weights must sum to 1 where \\(\\sum_{k=1}^K \\pi_k =1\\). The mixture component is represented as \\(P(X_i |Z_i = k)\\).\nThe Probability Mass Function for discrete random variables of this mixture model is:\n\\[p(x) =  \\sum_{k=1}^{K}\\pi_k p(x \\mid Z_{k})\\]\nor could also be written as\n\\[p(x) =  \\sum_{k=1}^{K}\\pi_k \\cdot f(x \\mid \\mu_k, \\sigma_k^2)\\] For multiple dimensions, the probability density function for continuous random variables of the mixture model is:\n\\[f_{x}(x) = \\sum_{k=1}^{K}\\pi_k f_{x \\mid Z_{k}}(x \\mid Z_{k}) \\] or could also be written as\n\\[p(x) = \\sum_{k=1}^{K} \\pi_k \\cdot f(x \\mid \\mu_k, \\Sigma_k)\\] where \\(f(x \\mid \\mu_k, \\Sigma_k)\\) mal distribution with mean vector \\(\\mu_k\\) and covariance matrix \\(\\sum_k\\)."
   },
   {
     "objectID": "posts/welcome/index.html#visualizing-gmm",
     "href": "posts/welcome/index.html#visualizing-gmm",
+    "title": "Mixture Models",
+    "section": "Visualizing GMM",
+    "text": "Visualizing GMM\nNow assume our data are the heights of students at the University of Chicago. Assume the height of a randomly chosen male is normally distributed with a mean equal to 5′9 and a standard deviation of 2.5 inches and the height of a randomly chosen female is \\(N(5′4,2.5)\\).However, instead of 50/50 mixture proportions, assume that 75% of the population is female, and 25% is male. We simulate heights in a similar fashion as above, with the corresponding changes to the parameters:\n\nNUM.SAMPLES &lt;- 5000\nheights      &lt;- numeric(NUM.SAMPLES)\nfor(i in seq_len(NUM.SAMPLES)) {\n  z.i &lt;- rbinom(1,1,0.75)\n  if(z.i == 0) heights[i] &lt;- rnorm(1, mean = 69, sd = 2.5)\n  else heights[i] &lt;- rnorm(1, mean = 64, sd = 2.5)\n}\nhist(heights)\n\n\n\n\n\n\n\n\nNow we see that histogram is unimodal. Are heights normally distributed under this model? We plot the corresponding densities below:\n\n\n\n\n\n\n\n\n\nHere we see that the Gaussian mixture model is unimodal because there is so much overlap between the two densities. In this example, you can see that the population density is not symmetric, and therefore not normally distributed.\nThese two illustrative examples above give rise to the general notion of a mixture model which assumes each observation is generated from one of \\(K\\) mixture components.\nAcknowledgement: The “Examples” section above was taken from lecture notes written by Ramesh Sridharan.\nReferences: Bernstein, M., Stephens, M. (Github Repositories)\n@"
+  },
+  {
+    "objectID": "posts/welcome/index.html#introduction",
+    "href": "posts/welcome/index.html#introduction",
+    "title": "Mixture Models",
+    "section": "Introduction",
+    "text": "Introduction\nMixture models are a broad class of statistical models used to discern unobserved (i.e, latent) classes or patterns of responses from data.These are also known as model-based clustering (Peel and MacLahlan (2000)). Mixture models are useful for describing heterogeneity in data where it is not distinctive in a single distribution. The idea of this model is that the data is generated from a mixture of \\(K\\) different distributions, known as components.\nEach data point is associated with a latent (hidden) variable that indicates which component it came from. This variable is not observed directly but is inferred from the data, and each component also has a weight that represents the proportion of data points belonging to it. These weights must sum to 1. Unlike, K-Means where instead of assigning data points to a single component (known as hard clustering), mixture models provide probabilities for each data point being associated with each component. This is known as soft clustering."
+  },
+  {
+    "objectID": "posts/mixture/index.html",
+    "href": "posts/mixture/index.html",
+    "title": "Mixture Models",
+    "section": "",
+    "text": "Clustering is the process of organizing similar data points into groups, revealing patterns and insights that may not be immediately apparent. It divides data into distinct categories based on behavior, providing a clearer perspective of how the data is arranged. However, what happens when some data points overlap between clusters or do not clearly belong to just one category?\nIn this blog, we will explore Mixture Models to gain deeper insights on how they deal with clustering and data analysis."
+  },
+  {
+    "objectID": "posts/mixture/index.html#definition",
+    "href": "posts/mixture/index.html#definition",
+    "title": "Mixture Models",
+    "section": "Definition",
+    "text": "Definition\nMixture models are a broad class of statistical models used to discern unobserved (i.e, latent) classes or patterns of responses from data (Peel and MacLahlan 2000). It have been used extensively as models in a wide variety of important practical situations where data can be viewed as arising from two or more populations mixed in varying proportions (G. J. McLachlan 1987). These are also known as model-based clustering, where they are useful for describing heterogeneity in data where it is not distinctive in a single distribution.\nRather than assigning each data point to a specific group (K-Means clustering), Mixture Models calculate the probability that each data point belongs to different groups(a mixture of \\(K\\) different distributions), known as components. Each component represents a distinct group within the data, and the model assigns probabilities instead of fixed components—known as soft clustering.\nEvery data point is linked to a hidden (latent) variable that indicates which component it comes from, though this variable is not directly observed but is inferred from the data. Each component has a weight that reflects the proportion of data points in that group, and these weights must sum to 1.\nIn a simpler term, Mixture Models allow for more flexibility by assigning probabilities to each point, showing how likely it is to belong to multiple groups. This provides a richer, more accurate representation of the data."
+  },
+  {
+    "objectID": "posts/mixture/index.html#example",
+    "href": "posts/mixture/index.html#example",
+    "title": "Mixture Models",
+    "section": "Example",
+    "text": "Example\nA researcher wants to understand the study habits of students in a school. They already have data on study hours per week and test scores, but suspect that there might be different types of study habits that are not directly apparent.\nUsing a Mixture Model, the researcher assumes that there are three types of study habits (components): intensive study, moderate study, and infrequent study. Instead of assigning each student to a distinct component, the model calculates the probability that a student belongs to each study habit type. For example, Student 1 might have a 70% probability of being in the “intensive study” group, a 20% probability of being in the “moderate study” group, and a 10% probability of being in the “infrequent study” group.\nThe model helps understand the structure of study habits among students, giving more detailed understanding of the student’s behavior."
+  },
+  {
+    "objectID": "posts/gmm/index.html",
+    "href": "posts/gmm/index.html",
+    "title": "Gaussian Mixture Model",
+    "section": "",
+    "text": "In our previous discussion, we discussed about Mixture Models, where probabilities are used to determine what components the observations will most likely belong. In this section, we will explore a certain type of Mixture Models where it uses Normal Distributions, known as Gaussian Mixture Model."
+  },
+  {
+    "objectID": "posts/gmm/index.html#definition",
+    "href": "posts/gmm/index.html#definition",
+    "title": "Gaussian Mixture Model",
+    "section": "Definition",
+    "text": "Definition\nIn Gaussian Mixture Model, we assume that the data is generated from a mixture of \\(K\\) Gaussian distributions. To generate a data point \\(X\\), we first select one of these \\(K\\) Gaussian according to Categorical distribution:\n\\[\nZ\\sim Cat(\\pi_1, \\pi_2, \\cdots, \\pi_K)\n\\]\nwhere \\(Z\\in\\left\\{ 1,2, \\cdots, K \\right\\}\\) indicates which Gaussian to use, and \\(\\pi_k\\) is the probability of choosing the \\(k\\)th Gaussian, known as the mixing weight.\nGiven \\(Z=k\\) , the data point \\(X\\) is then sampled from the \\(k\\)th Gaussian:\n\\[X \\sim N(\\mu_k, \\Sigma_k)\\]\nwhere \\(\\mu_k\\) and \\(\\Sigma_k\\) are the mean and covariance matrix respectively of the selected Gaussian component. The latent variable \\(Z\\), which is not directly observed, indicates which Gaussian component generated each data point \\(X\\).\nFor a univariate normal distribution, the data is one-dimensional (e.g., height or weight), it is characterized by two key parameters:\n\\(\\bullet\\) Mean (\\(\\mu\\)): which is the average value, represents the central value where data points are likely to be found\n\\(\\bullet\\) Variance(\\(\\sigma^2\\)): where it determines the spread of the data points around the mean\nThe Gaussian Distribution has a density function of:\n\\[f(x) = f_x(x;\\mu, \\sigma) = \\frac{1}{\\sqrt{2\\pi} \\sigma} e^{-(x-\\mu)^2/2\\sigma^2}\\]\nFrom the law of total probability,\n\\[P(A) = \\sum P(A \\cap B_k)\\] the marginal probability of \\(X\\) is:\n\\[P(X = x) = \\sum_{k=1}^K P(X=x|Z=k)\\underbrace{P(Z=k)}_{\\pi_k} = \\sum_{k=1}^K P(X=x|Z=k)\\pi_k\\]\nwhere \\(\\sum_{k=1}^K \\pi_k =1\\) ensures that the mixing weight sum to 1 (as stated previously). The mixture component is represented as \\(P(X |Z = k)\\).\nThe Probability Mass Function for discrete random variables of the mixture model is:\n\\[p(x) =  \\sum_{k=1}^{K}\\pi_k p(x \\mid Z_{k})\\]\nor could also be written as\n\\[p(x) =  \\sum_{k=1}^{K}\\pi_k \\cdot f(x \\mid \\mu_k, \\sigma_k^2)\\]\nFor a multivariate normal distribution where the data is from a multiple dimensions, the probability density function for continuous random variables of the mixture model is:\n\\[f_{x}(x) = \\sum_{k=1}^{K}\\pi_k f_{x \\mid Z_{k}}(x \\mid Z_{k}) \\] or could also be written as\n\\[p(x) = \\sum_{k=1}^{K} \\pi_k \\cdot f(x \\mid \\mu_k, \\Sigma_k)\\] where \\(f(x \\mid \\mu_k, \\Sigma_k)\\) is normal distribution with mean vector \\(\\mu_k\\) and covariance matrix \\(\\sum_k\\)."
+  },
+  {
+    "objectID": "posts/gmm/index.html#visualizing-gmm",
+    "href": "posts/gmm/index.html#visualizing-gmm",
     "title": "Gaussian Mixture Model",
     "section": "Visualizing GMM",
-    "text": "Visualizing GMM\nNow assume our data are the heights of students at the University of Chicago. Assume the height of a randomly chosen male is normally distributed with a mean equal to 5′9 and a standard deviation of 2.5 inches and the height of a randomly chosen female is \\(N(5′4,2.5)\\).However, instead of 50/50 mixture proportions, assume that 75% of the population is female, and 25% is male. We simulate heights in a similar fashion as above, with the corresponding changes to the parameters:\n\nNUM.SAMPLES &lt;- 5000\nheights      &lt;- numeric(NUM.SAMPLES)\nfor(i in seq_len(NUM.SAMPLES)) {\n  z.i &lt;- rbinom(1,1,0.75)\n  if(z.i == 0) heights[i] &lt;- rnorm(1, mean = 69, sd = 2.5)\n  else heights[i] &lt;- rnorm(1, mean = 64, sd = 2.5)\n}\nhist(heights)\n\n\n\n\n\n\n\n\nNow we see that histogram is unimodal. Are heights normally distributed under this model? We plot the corresponding densities below:\n\n\n\n\n\n\n\n\n\nHere we see that the Gaussian mixture model is unimodal because there is so much overlap between the two densities. In this example, you can see that the population density is not symmetric, and therefore not normally distributed.\nThese two illustrative examples above give rise to the general notion of a mixture model which assumes each observation is generated from one of \\(K\\) mixture components.\nAcknowledgement: The “Examples” section above was taken from lecture notes written by Ramesh Sridharan.\nReferences: Bernstein, M., Stephens, M. (Github Repositories)"
+    "text": "Visualizing GMM\nNow assume our data are the heights of students at the University of Chicago. Assume the height of a randomly chosen male is normally distributed with a mean equal to 5′9 and a standard deviation of 2.5 inches and the height of a randomly chosen female is \\(N\\)(5′4,2.5).However, instead of 50/50 mixture proportions, assume that 75% of the population is female, and 25% is male. We simulate heights in a similar fashion as above, with the corresponding changes to the parameters:\n\nNUM.SAMPLES &lt;- 5000\nheights      &lt;- numeric(NUM.SAMPLES)\nfor(i in seq_len(NUM.SAMPLES)) {\n  z.i &lt;- rbinom(1,1,0.75)\n  if(z.i == 0) heights[i] &lt;- rnorm(1, mean = 69, sd = 2.5)\n  else heights[i] &lt;- rnorm(1, mean = 64, sd = 2.5)\n}\nhist(heights)\n\n\n\n\n\n\n\n\nNow we see that histogram is unimodal. Are heights normally distributed under this model? We plot the corresponding densities below:\n\n\n\n\n\n\n\n\n\nHere we see that the Gaussian mixture model is unimodal because there is so much overlap between the two densities. In this example, you can see that the population density is not symmetric, and therefore not normally distributed.\nThese two illustrative examples above give rise to the general notion of a mixture model which assumes each observation is generated from one of \\(K\\) mixture components."
+  },
+  {
+    "objectID": "posts/mixture/index.html#conclusion",
+    "href": "posts/mixture/index.html#conclusion",
+    "title": "Mixture Models",
+    "section": "Conclusion",
+    "text": "Conclusion\nMixture Models are useful modeling of heterogeneity in a cluster analysis - where data points are not distinct or apparent.They play a significant role in assessing error rates (sensitivity and specificity) and have been successfully applied in fields such as finance, biology, and technology (Peel and MacLahlan 2000)."
+  },
+  {
+    "objectID": "posts/gmm/index.html#gaussian-mixture-model",
+    "href": "posts/gmm/index.html#gaussian-mixture-model",
+    "title": "Gaussian Mixture Model",
+    "section": "Gaussian Mixture Model",
+    "text": "Gaussian Mixture Model\nOne of the common type of mixture model is the Guassian Mixture Model (GMM). This is a popular method for data clustering which also use EM algorithm for performing maximum likelihood estimation of its parameters. The term Gaussian comes from the German mathematician and physicist Carl Friedrich Gauss, who is particularly known for his work on the Normal Distribution - often referred to as the Gaussian distribution."
+  },
+  {
+    "objectID": "posts/gmm/index.html#conclusion",
+    "href": "posts/gmm/index.html#conclusion",
+    "title": "Gaussian Mixture Model",
+    "section": "Conclusion",
+    "text": "Conclusion\nGaussian Mixture Model are ubiquitous probabilistic models for density estimation in machine learning (Titterington, Smith, and Makov 1985). It is widely used and known for its flexibility in understanding data distributions. It represents data using probabilities, which helps us determine any uncertainties and variability in our data, providing insights on how data is distributed.\nAcknowledgement: The “Examples” section above was taken from lecture notes written by Ramesh Sridharan."
   }
 ]

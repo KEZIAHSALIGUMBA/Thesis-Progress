@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Keziah M. Saligumba">
+<meta name="dcterms.date" content="2024-09-15">
 
-<title>Thesis-Progress – Gaussian Mixed Model</title>
+<title>Mixture Models – Gaussian Mixed Model</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,35 +88,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -128,17 +119,17 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Gaussian Mixed Model</span>
     </a>
   </div>
@@ -149,7 +140,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,110 +163,77 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Thesis-Progress</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Mixture Models</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">concepts</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Keziah M. Saligumba </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 15, 2024</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="concepts">concepts <span class="quarto-category-count">(2)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<p>Clustering is the process of organizing similar data points into groups, revealing patterns and insights that may not be immediately apparent. It divides data into distinct categories based on behavior, providing a clearer perspective of how the data is arranged. However, what happens when some data points overlap between clusters or do not clearly belong to just one category?</p>
+<p><em>In this blog, we will explore Mixture Models to gain deeper insights on how they deal with clustering and data analysis.</em></p>
+<section id="definition" class="level2">
+<h2 class="anchored" data-anchor-id="definition">Definition</h2>
+<p>Mixture models are a broad class of statistical models used to discern unobserved (i.e, latent) classes or patterns of responses from data <span class="citation" data-cites="peel2000finite">(<a href="#ref-peel2000finite" role="doc-biblioref">Peel and MacLahlan 2000</a>)</span>. It have been used extensively as models in a wide variety of important practical situations where data can be viewed as arising from two or more populations mixed in varying proportions <span class="citation" data-cites="book:1573099">(<a href="#ref-book:1573099" role="doc-biblioref">G. J. McLachlan 1987</a>)</span>. These are also known as model-based clustering, where they are useful for describing heterogeneity in data where it is not distinctive in a single distribution.</p>
+<p>Rather than assigning each data point to a specific group (K-Means clustering), Mixture Models calculate the probability that each data point belongs to different groups(a mixture of <span class="math inline">\(K\)</span> different distributions), known as <strong>components</strong>. Each component represents a distinct group within the data, and the model assigns probabilities instead of fixed components—known as <strong>soft clustering</strong>.</p>
+<p>Every data point is linked to a hidden (latent) variable that indicates which component it comes from, though this variable is not directly observed but is inferred from the data. Each component has a weight that reflects the proportion of data points in that group, and these weights must sum to 1.</p>
+<p>In a simpler term, Mixture Models allow for more flexibility by assigning probabilities to each point, showing how likely it is to belong to multiple groups. This provides a richer, more accurate representation of the data.</p>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<p>A researcher wants to understand the study habits of students in a school. They already have data on study hours per week and test scores, but suspect that there might be different types of study habits that are not directly apparent.</p>
+<p>Using a Mixture Model, the researcher assumes that there are three types of study habits (components): <strong>intensive study</strong>, <strong>moderate study</strong>, and <strong>infrequent study</strong>. Instead of assigning each student to a distinct component, the model calculates the probability that a student belongs to each study habit type. For example, Student 1 might have a 70% probability of being in the “intensive study” group, a 20% probability of being in the “moderate study” group, and a 10% probability of being in the “infrequent study” group.</p>
+<p>The model helps understand the structure of study habits among students, giving more detailed understanding of the student’s behavior.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Mixture Models are useful modeling of heterogeneity in a cluster analysis - where data points are not distinct or apparent.They play a significant role in assessing error rates (sensitivity and specificity) and have been successfully applied in fields such as finance, biology, and technology <span class="citation" data-cites="peel2000finite">(<a href="#ref-peel2000finite" role="doc-biblioref">Peel and MacLahlan 2000</a>)</span>.</p>
 
 
 
+</section>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="concepts" data-listing-date-sort="1726329600000" data-listing-file-modified-sort="1726759015403" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="756">
-<div class="thumbnail">
-<p><a href="./posts/gmm/index.html" class="no-external"></a></p><a href="./posts/gmm/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/gmm/thumbnail.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/gmm/index.html" class="no-external"></a></p>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-book:1573099" class="csl-entry" role="listitem">
+G. J. McLachlan, Geoffrey J. McLachlan, K. E. Basford. 1987. <em>Mixture Models : Inference and Applications to Clustering</em>. 0th ed. Statistics: A Series of Textbooks and Monographs. CRC Press. <a href="http://gen.lib.rus.ec/book/index.php?md5=f6efab549b31610076b0cae03a7bb745">http://gen.lib.rus.ec/book/index.php?md5=f6efab549b31610076b0cae03a7bb745</a>.
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/gmm/index.html" class="no-external">Gaussian Mixture Model</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/gmm/index.html" class="no-external"></a>
+<div id="ref-peel2000finite" class="csl-entry" role="listitem">
+Peel, David, and G MacLahlan. 2000. <span>“Finite Mixture Models.”</span> <em>John &amp; Sons</em>.
 </div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('concepts'); return false;">
-concepts
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/gmm/index.html" class="no-external"><em>In our previous discussion, we discussed about Mixture Models, where probabilities are used to determine what components the observations will most likely belong. In this…<strong></strong></em></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/gmm/index.html" class="no-external">
-<div class="listing-date">
-Sep 15, 2024
-</div>
-<div class="listing-author">
-Keziah M. Saligumba
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="concepts" data-listing-date-sort="1726329600000" data-listing-file-modified-sort="1726758664125" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="483">
-<div class="thumbnail">
-<p><a href="./posts/mixture/index.html" class="no-external"></a></p><a href="./posts/mixture/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/mixture/mixture.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/mixture/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/mixture/index.html" class="no-external">Mixture Models</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/mixture/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('concepts'); return false;">
-concepts
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/mixture/index.html" class="no-external">Clustering is the process of organizing similar data points into groups, revealing patterns and insights that may not be immediately apparent. It divides data into distinct…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/mixture/index.html" class="no-external">
-<div class="listing-date">
-Sep 15, 2024
-</div>
-<div class="listing-author">
-Keziah M. Saligumba
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -1,0 +1,34 @@
+---
+title: "Mixture Models"
+author: "Keziah M. Saligumba"
+date: "2024-09-15"
+categories: [concepts]
+image: mixture.png
+bibliography: references.bib
+---
+
+Clustering is the process of organizing similar data points into groups, revealing patterns and insights that may not be immediately apparent. It divides data into distinct categories based on behavior, providing a clearer perspective of how the data is arranged. However, what happens when some data points overlap between clusters or do not clearly belong to just one category?
+
+*In this blog, we will explore Mixture Models to gain deeper insights on how they deal with clustering and data analysis.*
+
+## Definition
+
+Mixture models are a broad class of statistical models used to discern unobserved (i.e, latent) classes or patterns of responses from data [@peel2000finite]. It have been used extensively as models in a wide variety of important practical situations where data can be viewed as arising from two or more populations mixed in varying proportions [@book:1573099]. These are also known as model-based clustering, where they are useful for describing heterogeneity in data where it is not distinctive in a single distribution.
+
+Rather than assigning each data point to a specific group (K-Means clustering), Mixture Models calculate the probability that each data point belongs to different groups(a mixture of $K$ different distributions), known as **components**. Each component represents a distinct group within the data, and the model assigns probabilities instead of fixed components—known as **soft clustering**.
+
+Every data point is linked to a hidden (latent) variable that indicates which component it comes from, though this variable is not directly observed but is inferred from the data. Each component has a weight that reflects the proportion of data points in that group, and these weights must sum to 1.
+
+In a simpler term, Mixture Models allow for more flexibility by assigning probabilities to each point, showing how likely it is to belong to multiple groups. This provides a richer, more accurate representation of the data.
+
+## Example
+
+A researcher wants to understand the study habits of students in a school. They already have data on study hours per week and test scores, but suspect that there might be different types of study habits that are not directly apparent.
+
+Using a Mixture Model, the researcher assumes that there are three types of study habits (components): **intensive study**, **moderate study**, and **infrequent study**. Instead of assigning each student to a distinct component, the model calculates the probability that a student belongs to each study habit type. For example, Student 1 might have a 70% probability of being in the "intensive study" group, a 20% probability of being in the "moderate study" group, and a 10% probability of being in the "infrequent study" group.
+
+The model helps understand the structure of study habits among students, giving more detailed understanding of the student's behavior.
+
+## Conclusion
+
+Mixture Models are useful modeling of heterogeneity in a cluster analysis - where data points are not distinct or apparent.They play a significant role in assessing error rates (sensitivity and specificity) and have been successfully applied in fields such as finance, biology, and technology [@peel2000finite].
