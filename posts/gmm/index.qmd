@@ -11,7 +11,7 @@ bibliography: reference.bib
 
 ## Gaussian Mixture Model
 
-One of the common type of mixture model is the **Guassian Mixture Model (GMM)**. It is widely used in data mining, pattern recognition, machine learning, and statistical analysis \[\].The term **Gaussian** comes from the German mathematician and physicist Carl Friedrich Gauss, who is particularly known for his work on the **Normal Distribution** - often referred to as the ***Gaussian distribution***.
+One of the common type of mixture model is the **Guassian Mixture Model (GMM)**. The term **Gaussian** comes from the German mathematician and physicist Carl Friedrich Gauss, who is particularly known for his work on the **Normal Distribution** - often referred to as the ***Gaussian distribution***.
 
 ## Definition
 
