@@ -1,0 +1,8 @@
+---
+title: "Application of Gaussian Mixtures"
+author: "Keziah M. Saligumba"
+date: "2024-09-19"
+categories: [concepts, application]
+image: mixture.png
+bibliography: references.bib
+---
