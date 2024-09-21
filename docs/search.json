@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Thesis-Progress",
+    "title": "Thesis-Concepts",
     "section": "",
     "text": "Gaussian Mixture Model\n\n\n\n\n\n\nconcepts\n\n\n\n\n\n\n\n\n\nSep 15, 2024\n\n\nKeziah M. Saligumba\n\n\n\n\n\n\n\n\n\n\n\n\nMixture Models\n\n\n\n\n\n\nconcepts\n\n\n\n\n\n\n\n\n\nSep 15, 2024\n\n\nKeziah M. Saligumba\n\n\n\n\n\n\nNo matching items"
   },
@@ -102,13 +102,27 @@
     "href": "posts/gmm/index.html#gaussian-mixture-model",
     "title": "Gaussian Mixture Model",
     "section": "Gaussian Mixture Model",
-    "text": "Gaussian Mixture Model\nOne of the common type of mixture model is the Guassian Mixture Model (GMM). The term Gaussian comes from the German mathematician and physicist Carl Friedrich Gauss, who is particularly known for his work on the Normal Distribution - often referred to as the Gaussian distribution."
+    "text": "Gaussian Mixture Model\nOne of the common type of mixture models is the Gaussian Mixture Model (GMM). The term Gaussian comes from the German mathematician and physicist Carl Friedrich Gauss, who is particularly known for his work on the Normal Distribution - often referred to as the Gaussian distribution."
   },
   {
     "objectID": "posts/gmm/index.html#conclusion",
     "href": "posts/gmm/index.html#conclusion",
     "title": "Gaussian Mixture Model",
     "section": "Conclusion",
-    "text": "Conclusion\nGaussian Mixture Model are ubiquitous probabilistic models for density estimation in machine learning (Titterington, Smith, and Makov 1985). It is widely used and known for its flexibility in understanding data distributions. They use gaussian distribution to figure out which component each data point likely to belong, and assigns probabilities to represent how data points are grouped. It helps us determine any uncertainties and variability in our data, providing insights on how data is distributed.\nAcknowledgement: The “Examples” section above was taken from lecture notes written by Ramesh Sridharan."
+    "text": "Conclusion\nGaussian Mixture Model are ubiquitous probabilistic models for density estimation in machine learning (Titterington, Smith, and Makov 1985). It is widely used and known for its flexibility in understanding data distributions. They use gaussian distribution to figure out which component each data point likely to belong, and assigns probabilities to represent how data points are grouped. It helps us determine any uncertainties and variability in our data, providing insights on how data is distributed."
+  },
+  {
+    "objectID": "posts/gmm/index.html#sec-book",
+    "href": "posts/gmm/index.html#sec-book",
+    "title": "Gaussian Mixture Model",
+    "section": "2 Definition",
+    "text": "2 Definition\nIn Gaussian Mixture Model, we assume that the data is generated from a mixture of \\(K\\) Gaussian distributions. To generate a data point \\(X\\), we first select one of these \\(K\\) Gaussian according to Categorical distribution:\n\\[\nZ\\sim Cat(\\pi_1, \\pi_2, \\cdots, \\pi_K)\n\\]\nwhere \\(Z\\in\\left\\{ 1,2, \\cdots, K \\right\\}\\) indicates which Gaussian is chosen. When a particular element is selected, this element is denoted by \\(Z_k\\) and is equal to 1, and all other elements are equal to 0. The values of these element satisfies \\(Z_k\\in\\left\\{ 0,1\\right\\}\\) and \\(\\sum_{k=1}^K Z_k =1\\). Such that \\(p(Z_k =1)=\\pi_k\\) is the marginal distribution over \\(Z\\), where \\(\\pi_k\\) is the mixing coefficient or mixing weight.\nOnce that \\(Z=k\\) , the data point \\(X\\) is then sampled from the \\(k\\)th Gaussian:\n\\[X \\sim N(\\mu_k, \\Sigma_k)\\]\nwhere \\(\\mu_k\\) and \\(\\Sigma_k\\) are the mean and covariance matrix respectively of the selected Gaussian component. The latent variable \\(Z\\), which is not directly observed, indicates which Gaussian component generated each data point \\(X\\).\nFor a univariate normal distribution, the data is one-dimensional (e.g., height or weight), it is characterized by two key parameters:\n\\(\\bullet\\) Mean (\\(\\mu\\)): which is the average value, represents the central value where data points are likely to be found\n\\(\\bullet\\) Variance(\\(\\sigma^2\\)): where it determines the spread of the data points around the mean\nThe Gaussian Distribution has a density function of:\n\\[f(x) = f_x(x;\\mu, \\sigma) = \\frac{1}{\\sqrt{2\\pi} \\sigma} e^{-(x-\\mu)^2/2\\sigma^2}\\]\nFrom the law of total probability,\n\\[P(A) = \\sum P(A \\cap B_k)\\] the marginal probability of \\(X\\) is:\n\\[P(X = x) = \\sum_{k=1}^K P(X=x|Z=k)\\underbrace{P(Z=k)}_{\\pi_k} = \\sum_{k=1}^K P(X=x|Z=k)\\pi_k\\]\nwhere \\(\\sum_{k=1}^K \\pi_k =1\\) ensures that the mixing weight sum to 1 (as stated previously). The mixture component is represented as \\(P(X |Z = k)\\).\nThe Probability Mass Function for discrete random variables of the mixture model is:\n\\[p(x) =  \\sum_{k=1}^{K}\\pi_k p(x \\mid Z_{k})\\]\nor could also be written as\n\\[p(x) =  \\sum_{k=1}^{K}\\pi_k \\cdot f(x \\mid \\mu_k, \\sigma_k^2)\\]\nFor a multivariate normal distribution where the data is from a multiple dimensions, the probability density function for continuous random variables of the mixture model is:\n\\[f_{x}(x) = \\sum_{k=1}^{K}\\pi_k f_{x \\mid Z_{k}}(x \\mid Z_{k}) \\] or could also be written as\n\\[p(x) = \\sum_{k=1}^{K} \\pi_k \\cdot f(x \\mid \\mu_k, \\Sigma_k)\\] where \\(f(x \\mid \\mu_k, \\Sigma_k)\\) is normal distribution with mean vector \\(\\mu_k\\) and covariance matrix \\(\\sum_k\\)."
+  },
+  {
+    "objectID": "posts/gmm/index.html#acknowledgement",
+    "href": "posts/gmm/index.html#acknowledgement",
+    "title": "Gaussian Mixture Model",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nThe “Examples” section above was taken from lecture notes written by Ramesh Sridharan."
   }
 ]

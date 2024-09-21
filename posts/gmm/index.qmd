@@ -5,13 +5,16 @@ date: "2024-09-15"
 categories: [concepts]
 image: "thumbnail.png"
 bibliography: reference.bib
+nocite: |
+  @bishopcprml, @bernstein2021gmm_em
 ---
+
 
 *In our previous discussion, we discussed about Mixture Models, where probabilities are used to determine what components the observations will most likely belong. In this section, we will explore a certain type of Mixture Models where it uses Normal Distributions, known as **Gaussian Mixture Model***.
 
 ## Gaussian Mixture Model
 
-One of the common type of mixture models is the **Guassian Mixture Model (GMM)**. The term **Gaussian** comes from the German mathematician and physicist Carl Friedrich Gauss, who is particularly known for his work on the **Normal Distribution** - often referred to as the ***Gaussian distribution***.
+One of the common type of mixture models is the **Gaussian Mixture Model (GMM)**. The term **Gaussian** comes from the German mathematician and physicist Carl Friedrich Gauss, who is particularly known for his work on the **Normal Distribution** - often referred to as the ***Gaussian distribution***.
 
 ## Definition
 
@@ -21,7 +24,7 @@ $$
 Z\sim Cat(\pi_1, \pi_2, \cdots, \pi_K)
 $$
 
-where $Z\in\left\{ 1,2, \cdots, K \right\}$ indicates which Gaussian is chosen. When a particular element is selected, this element is denoted by $Z_k$ and is equal to 1, and all other elements are equal to 0. The values of these element satisfies $Z_k\in\left\{ 0,1\right\}$ and $\sum_{k=1}^K Z_k =1$. Such that $p(Z_k =1)=\pi_k$ is the marginal distribution over $Z$, where $\pi_k$ is the **mixing coefficient** or ***mixing weight***.
+where $Z\in\left\{ 1,2, \cdots, K \right\}$ indicates which Gaussian is chosen. When a particular element is selected, this element is denoted by $Z_k$ and is equal to 1, and all other elements are equal to 0. The values of these element satisfies $Z_k\in\left\{ 0,1\right\}$ and $\sum_{k=1}^K Z_k =1$. Such that $p(Z_k =1)=\pi_k$ is the marginal distribution over $Z$, where $\pi_k$ is the **mixing coefficient** or ***mixing weight***. 
 
 Once that $Z=k$ , the data point $X$ is then sampled from the $k$th Gaussian:
 
@@ -103,4 +106,6 @@ These two illustrative examples above give rise to the general notion of a mixtu
 
 **Gaussian Mixture Model** are ubiquitous probabilistic models for density estimation in machine learning [@titterington1985statistical]. It is widely used and known for its flexibility in understanding data distributions. They use gaussian distribution to figure out which component each data point likely to belong, and assigns probabilities to represent how data points are grouped. It helps us determine any uncertainties and variability in our data, providing insights on how data is distributed.
 
-**Acknowledgement:** The "Examples" section above was taken from lecture notes written by Ramesh Sridharan.
+## Acknowledgement {.appendix}
+
+The "Examples" section above was taken from lecture notes written by Ramesh Sridharan.
