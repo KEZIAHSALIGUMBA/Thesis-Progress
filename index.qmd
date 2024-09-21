@@ -1,5 +1,5 @@
 ---
-title: "Thesis-Progress"
+title: "Thesis-Concepts"
 listing:
   contents: posts
   sort: "date desc"
