@@ -240,7 +240,7 @@ window.Quarto = {
 <p><em>In our previous discussion, we discussed about Mixture Models, where probabilities are used to determine what components the observations will most likely belong. In this section, we will explore a certain type of Mixture Models where it uses Normal Distributions, known as <strong>Gaussian Mixture Model</strong></em>.</p>
 <section id="gaussian-mixture-model" class="level2">
 <h2 class="anchored" data-anchor-id="gaussian-mixture-model">Gaussian Mixture Model</h2>
-<p>One of the common type of mixture model is the <strong>Guassian Mixture Model (GMM)</strong>. This is a popular method for data clustering which also use EM algorithm for performing maximum likelihood estimation of its parameters. The term <strong>Gaussian</strong> comes from the German mathematician and physicist Carl Friedrich Gauss, who is particularly known for his work on the <strong>Normal Distribution</strong> - often referred to as the <strong><em>Gaussian distribution</em></strong>.</p>
+<p>One of the common type of mixture model is the <strong>Guassian Mixture Model (GMM)</strong>. The term <strong>Gaussian</strong> comes from the German mathematician and physicist Carl Friedrich Gauss, who is particularly known for his work on the <strong>Normal Distribution</strong> - often referred to as the <strong><em>Gaussian distribution</em></strong>.</p>
 </section>
 <section id="definition" class="level2">
 <h2 class="anchored" data-anchor-id="definition">Definition</h2>
@@ -248,8 +248,8 @@ window.Quarto = {
 <p><span class="math display">\[
 Z\sim Cat(\pi_1, \pi_2, \cdots, \pi_K)
 \]</span></p>
-<p>where <span class="math inline">\(Z\in\left\{ 1,2, \cdots, K \right\}\)</span> indicates which Gaussian to use, and <span class="math inline">\(\pi_k\)</span> is the probability of choosing the <span class="math inline">\(k\)</span>th Gaussian, known as the <strong><em>mixing weight</em></strong>.</p>
-<p>Given <span class="math inline">\(Z=k\)</span> , the data point <span class="math inline">\(X\)</span> is then sampled from the <span class="math inline">\(k\)</span>th Gaussian:</p>
+<p>where <span class="math inline">\(Z\in\left\{ 1,2, \cdots, K \right\}\)</span> indicates which Gaussian is chosen. When a particular element is selected, this element is denoted by <span class="math inline">\(Z_k\)</span> and is equal to 1, and all other elements are equal to 0. The values of these element satisfies <span class="math inline">\(Z_k\in\left\{ 0,1\right\}\)</span> and <span class="math inline">\(\sum_{k=1}^K Z_k =1\)</span>. Such that <span class="math inline">\(p(Z_k =1)=\pi_k\)</span> is the marginal distribution over <span class="math inline">\(Z\)</span>, where <span class="math inline">\(\pi_k\)</span> is the <strong>mixing coefficient</strong> or <strong><em>mixing weight</em></strong>.</p>
+<p>Once that <span class="math inline">\(Z=k\)</span> , the data point <span class="math inline">\(X\)</span> is then sampled from the <span class="math inline">\(k\)</span>th Gaussian:</p>
 <p><span class="math display">\[X \sim N(\mu_k, \Sigma_k)\]</span></p>
 <p>where <span class="math inline">\(\mu_k\)</span> and <span class="math inline">\(\Sigma_k\)</span> are the mean and covariance matrix respectively of the selected Gaussian component. The latent variable <span class="math inline">\(Z\)</span>, which is not directly observed, indicates which Gaussian component generated each data point <span class="math inline">\(X\)</span>.</p>
 <p>For a <strong>univariate normal distribution</strong>, the data is one-dimensional (e.g., height or weight), it is characterized by two key parameters:</p>
@@ -304,7 +304,7 @@ Z\sim Cat(\pi_1, \pi_2, \cdots, \pi_K)
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p><strong>Gaussian Mixture Model</strong> are ubiquitous probabilistic models for density estimation in machine learning <span class="citation" data-cites="titterington1985statistical">(<a href="#ref-titterington1985statistical" role="doc-biblioref">Titterington, Smith, and Makov 1985</a>)</span>. It is widely used and known for its flexibility in understanding data distributions. It represents data using probabilities, which helps us determine any uncertainties and variability in our data, providing insights on how data is distributed.</p>
+<p><strong>Gaussian Mixture Model</strong> are ubiquitous probabilistic models for density estimation in machine learning <span class="citation" data-cites="titterington1985statistical">(<a href="#ref-titterington1985statistical" role="doc-biblioref">Titterington, Smith, and Makov 1985</a>)</span>. It is widely used and known for its flexibility in understanding data distributions. They use gaussian distribution to figure out which component each data point likely to belong, and assigns probabilities to represent how data points are grouped. It helps us determine any uncertainties and variability in our data, providing insights on how data is distributed.</p>
 <p><strong>Acknowledgement:</strong> The “Examples” section above was taken from lecture notes written by Ramesh Sridharan.</p>
 
 
