@@ -6,5 +6,28 @@ categories: [concepts, application]
 image: "thumbnail.png"
 bibliography: reference.bib
 nocite: |
-  @bishopcprml
 ---
+
+*Previously,* it was tackled that Gaussian Mixture Model are powerful probabilistic models for density estimation and is known for it's flexibility in understanding data distributions. *In this blog, we'll explore how Gaussian Mixture Model work, particularly in the context of it's applications, and it's key concepts.*
+
+## GMM & EM Algorithm
+
+According to @bishopcprml, Gaussian mixture model are widely used in data mining, pattern recognition, machine learning, and statistical analysis.
+
+The *Expectation-Maximization* algorithm is a method used to find the maximum likelihood estimate in models that contain latent variables. It is used because it is not possible to solve the derivative of the in close-form which is
+
+$$
+\log p(x|\pi, \mu, \Sigma) = \sum_{n=1}^N \log \left\{ \sum_{k=1}^K \pi_k N(x_k|\mu_k,\Sigma_k) \right\}
+$$
+
+The first step of this algorithm is called *Expectation Step*, which assumes that the current parameter estimates are fixed. It is used to compute the expected values of the latent variable in the model. The algorithm is then followed by a *Maximization Step* that takes the expected values of the latent variables and finds updated values for the previous parameter estimates that maximize the likelihood function [@emmix].
+
+In the case of Gaussian mixture model, the *Expectation Step* assumes that the values of all 3 parameters $(\pi, \mu, \Sigma)$ are fixed and then computes the probability of each data point that belongs to each Gaussian component. Once the probability of each data point is calculated, it is then called "*responsibility*", which indicates how much each Gaussian contributes to the overall distribution of the data. After calculating the responsibilities, we then proceed to *Maximization* *Step* where we update the parameters based on these responsibilities. In this step, it maximizes the likelihood of the data given the current model parameters.
+
+Through these step-by-step methods, it converges to a set of parameters that best describe the data, enable us to do effective classifications.
+
+To have a further context related to *EM algo*rithm, you can visit [MAXIMUM LIKELIHOOD EXTIMATION OF MIXTURE OF UNIVARIATE NORMAL DISTRIBUTION](https://pearlclave2002.github.io/Thesis2k24/posts/post-with-code/)
+
+## Application of GMMs
+
+As stated, Gaussian Mixture Model is widely used in machine learning, and it find significant applications particularly in classification tasks. One of these is the **Handwritten Digit Recognition.**

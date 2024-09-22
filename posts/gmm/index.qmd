@@ -9,7 +9,6 @@ nocite: |
   @bishopcprml, @bernstein2021gmm_em
 ---
 
-
 *In our previous discussion, we discussed about Mixture Models, where probabilities are used to determine what components the observations will most likely belong. In this section, we will explore a certain type of Mixture Models where it uses Normal Distributions, known as **Gaussian Mixture Model***.
 
 ## Gaussian Mixture Model
@@ -24,7 +23,7 @@ $$
 Z\sim Cat(\pi_1, \pi_2, \cdots, \pi_K)
 $$
 
-where $Z\in\left\{ 1,2, \cdots, K \right\}$ indicates which Gaussian is chosen. When a particular element is selected, this element is denoted by $Z_k$ and is equal to 1, and all other elements are equal to 0. The values of these element satisfies $Z_k\in\left\{ 0,1\right\}$ and $\sum_{k=1}^K Z_k =1$. Such that $p(Z_k =1)=\pi_k$ is the marginal distribution over $Z$, where $\pi_k$ is the **mixing coefficient** or ***mixing weight***. 
+where $Z\in\left\{ 1,2, \cdots, K \right\}$ indicates which Gaussian is chosen. When a particular element is selected, this element is denoted by $Z_k$ and is equal to 1, and all other elements are equal to 0. The values of these element satisfies $Z_k\in\left\{ 0,1\right\}$ and $\sum_{k=1}^K Z_k =1$. Such that $p(Z_k =1)=\pi_k$ is the marginal distribution over $Z$, where $\pi_k$ is the **mixing coefficient** or ***mixing weight***.
 
 Once that $Z=k$ , the data point $X$ is then sampled from the $k$th Gaussian:
 
