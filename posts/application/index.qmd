@@ -31,3 +31,7 @@ To have a further context related to *EM algo*rithm, you can visit [MAXIMUM LIKE
 ## Application of GMMs
 
 As stated, Gaussian Mixture Model is widely used in machine learning, and it find significant applications particularly in classification tasks. One of these is the **Handwritten Digit Recognition.**
+
+### Handwritten Digit Recognition
+
+From the last several years, machine learning techniques when applied to neural networks have played a significant role in pattern recognition such as handwriting recognition.
