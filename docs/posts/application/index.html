@@ -218,18 +218,35 @@ window.Quarto = {
 <p>To have a further context related to <em>EM algo</em>rithm, you can visit <a href="https://pearlclave2002.github.io/Thesis2k24/posts/post-with-code/">MAXIMUM LIKELIHOOD EXTIMATION OF MIXTURE OF UNIVARIATE NORMAL DISTRIBUTION</a></p>
 </section>
 <section id="application-of-gmms" class="level2">
-
+<h2 class="anchored" data-anchor-id="application-of-gmms">Application of GMMs</h2>
+<p>As stated, Gaussian Mixture Model is widely used in machine learning, and find significant applications particularly in classification tasks. One of these is the <strong>Handwritten Digit Recognition.</strong></p>
+<section id="handwritten-digit-recognition" class="level3">
+<h3 class="anchored" data-anchor-id="handwritten-digit-recognition">Handwritten Digit Recognition</h3>
+<p>In recent years, machine learning techniques when applied to neural networks have played a significant role in pattern recognition such as recognizing handwritten digits. Recognizing handwritten digits is one of a big challenge for computers. The <strong><em>Modified National Institute of Standards and Technology (MNIST)</em></strong> database contains thousands of handwritten digits that commonly used for classification methods. The use of Gaussian Mixture Model provides models on how different people write the same digits by understanding patterns in pixel intensities.</p>
+<p>Using advanced features like Histogram of Gradients can help manage to determine how gradients change across the images, and improves performance by capturing important details such as strokes, and shapes of the digits. In addition, the <em>Expectation-Maximization algorithm</em> serves a significant role also in Handwritten Digit Recognition. Consider the digits 0-9 as a model which each of these digits are Gaussian distributed.</p>
+<p>In <em>EM algorithm,</em> this is how we can divide the recognition:</p>
+<p><strong>Expectation Step:</strong></p>
+<p>Let’s say from MNIST database, we take an image of the digit “1”. In this step, we calculate the probability of how likely this image belongs to each of the Gaussian distributions representing the digits from 0 to 9. The algorithm assesses how likely it is that the pixel intensity pattern of this image fit each digit’s model. This figures out which Gaussian best describes the observed data by determining the “responsibility” of each Gaussian for the image.</p>
+<p><strong>Maximization Step:</strong></p>
+<p>Once the responsibility are calculated, the algorithm updates the parameters of each Gaussian distribution which was determined during E-Step. This maximizes the likelihood of the data under the current model.</p>
 
 
 
 </section>
+</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Application of GMMs</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-bishopcprml" class="csl-entry" role="listitem">
 Bishop, Christopher M. 2006. <em>Pattern Recognition and Machine Learning (Information Science and Statistics)</em>. Berlin, Heidelberg: Springer-Verlag.
 </div>
 <div id="ref-emmix" class="csl-entry" role="listitem">
 Bouguila, N., and W. Fan. 2019. <em>Mixture Models and Applications</em>. Unsupervised and Semi-Supervised Learning. Springer International Publishing. <a href="https://books.google.com.ph/books?id=QSGpDwAAQBAJ">https://books.google.com.ph/books?id=QSGpDwAAQBAJ</a>.
+</div>
+<div id="ref-textidentification" class="csl-entry" role="listitem">
+Cao, Huaigu, Rohit Prasad, and Prem Natarajan. 2011. <span>“Handwritten and Typewritten Text Identification and Recognition Using Hidden Markov Models.”</span> In <em>Proceedings of the International Conference on Document Analysis and Recognition, ICDAR</em>, 744–48. <a href="https://doi.org/10.1109/ICDAR.2011.155">https://doi.org/10.1109/ICDAR.2011.155</a>.
+</div>
+<div id="ref-gradient" class="csl-entry" role="listitem">
+Lecun, Y., L. Bottou, Y. Bengio, and P. Haffner. 1998. <span>“Gradient-Based Learning Applied to Document Recognition.”</span> <em>Proceedings of the IEEE</em> 86 (11): 2278–2324. <a href="https://doi.org/10.1109/5.726791">https://doi.org/10.1109/5.726791</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

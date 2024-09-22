@@ -6,6 +6,7 @@ categories: [concepts, application]
 image: "thumbnail.png"
 bibliography: reference.bib
 nocite: |
+  @gradient, @textidentification
 ---
 
 *Previously,* it was tackled that Gaussian Mixture Model are powerful probabilistic models for density estimation and is known for it's flexibility in understanding data distributions. *In this blog, we'll explore how Gaussian Mixture Model work, particularly in the context of it's applications, and it's key concepts.*
@@ -30,8 +31,20 @@ To have a further context related to *EM algo*rithm, you can visit [MAXIMUM LIKE
 
 ## Application of GMMs
 
-As stated, Gaussian Mixture Model is widely used in machine learning, and it find significant applications particularly in classification tasks. One of these is the **Handwritten Digit Recognition.**
+As stated, Gaussian Mixture Model is widely used in machine learning, and find significant applications particularly in classification tasks. One of these is the **Handwritten Digit Recognition.**
 
 ### Handwritten Digit Recognition
 
-From the last several years, machine learning techniques when applied to neural networks have played a significant role in pattern recognition such as handwriting recognition.
+In recent years, machine learning techniques when applied to neural networks have played a significant role in pattern recognition such as recognizing handwritten digits. Recognizing handwritten digits is one of a big challenge for computers. The ***Modified National Institute of Standards and Technology (MNIST)*** database contains thousands of handwritten digits that commonly used for classification methods. The use of Gaussian Mixture Model provides models on how different people write the same digits by understanding patterns in pixel intensities.
+
+Using advanced features like Histogram of Gradients can help manage to determine how gradients change across the images, and improves performance by capturing important details such as strokes, and shapes of the digits. In addition, the *Expectation-Maximization algorithm* serves a significant role also in Handwritten Digit Recognition. Consider the digits 0-9 as a model which each of these digits are Gaussian distributed.
+
+In *EM algorithm,* this is how we can divide the recognition:
+
+**Expectation Step:**
+
+Let's say from MNIST database, we take an image of the digit "1". In this step, we calculate the probability of how likely this image belongs to each of the Gaussian distributions representing the digits from 0 to 9. The algorithm assesses how likely it is that the pixel intensity pattern of this image fit each digit's model. This figures out which Gaussian best describes the observed data by determining the "responsibility" of each Gaussian for the image.
+
+**Maximization Step:**
+
+Once the responsibility are calculated, the algorithm updates the parameters of each Gaussian distribution which was determined during E-Step. This maximizes the likelihood of the data under the current model.
