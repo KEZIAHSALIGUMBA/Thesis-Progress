@@ -3,14 +3,14 @@ project:
   output-dir: 'docs'
 
 website:
-  title: "Gaussian Mixed Model"
+  title: "Gaussian Mixture Model"
   navbar:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/KEZIAHSALIGUMBA
+      - icon: linkedin
+        href: https://www.linkedin.com/in/kzsaligumba/
 format:
   html:
     theme: cosmo
