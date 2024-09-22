@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Thesis-Concepts",
     "section": "",
-    "text": "Gaussian Mixture Model\n\n\n\n\n\n\nconcepts\n\n\n\n\n\n\n\n\n\nSep 15, 2024\n\n\nKeziah M. Saligumba\n\n\n\n\n\n\n\n\n\n\n\n\nMixture Models\n\n\n\n\n\n\nconcepts\n\n\n\n\n\n\n\n\n\nSep 15, 2024\n\n\nKeziah M. Saligumba\n\n\n\n\n\n\nNo matching items"
+    "text": "Application of GMM\n\n\n\n\n\n\nconcepts\n\n\napplication\n\n\n\n\n\n\n\n\n\nSep 20, 2024\n\n\nKeziah M. Saligumba\n\n\n\n\n\n\n\n\n\n\n\n\nGaussian Mixture Model\n\n\n\n\n\n\nconcepts\n\n\n\n\n\n\n\n\n\nSep 15, 2024\n\n\nKeziah M. Saligumba\n\n\n\n\n\n\n\n\n\n\n\n\nMixture Models\n\n\n\n\n\n\nconcepts\n\n\n\n\n\n\n\n\n\nSep 15, 2024\n\n\nKeziah M. Saligumba\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/post-with-code/index.html",
@@ -124,5 +124,12 @@
     "title": "Gaussian Mixture Model",
     "section": "Acknowledgement",
     "text": "Acknowledgement\n\nThe “Examples” section above was taken from lecture notes written by Ramesh Sridharan."
+  },
+  {
+    "objectID": "posts/application/index.html",
+    "href": "posts/application/index.html",
+    "title": "Application of GMM",
+    "section": "",
+    "text": "References\n\nBishop, Christopher M. 2006. Pattern Recognition and Machine Learning (Information Science and Statistics). Berlin, Heidelberg: Springer-Verlag."
   }
 ]

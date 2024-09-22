@@ -1,0 +1,10 @@
+---
+title: "Application of GMM"
+author: "Keziah M. Saligumba"
+date: "2024-09-20"
+categories: [concepts, application]
+image: "thumbnail.png"
+bibliography: reference.bib
+nocite: |
+  @bishopcprml
+---
